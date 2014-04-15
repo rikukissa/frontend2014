@@ -1,0 +1,468 @@
+doctype html
+html
+  head
+    title Node.js-pohjaiset kehitystyökalut
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='css/style.css')
+  body
+    #impress
+      .step#main(data-x='0', data-y='0', data-z='0')
+        h1 Frontend kehitystyökalut
+        .author
+          img(src='http://www.gravatar.com/avatar/e8c40d3b628af2a063aebd65b4d7c388.png')
+          .row Riku Rouvila
+          .row Full-stack developer @ <a href="http://leonidasoy.fi">Leonidas</a>
+          .row: a(href='https://twitter.com/rikurouvila', target='_blank') @rikurouvila
+
+      //- .step(data-x='1500', data-y='0', data-z='1000')
+      //-   iframe(width='960', height='510', src='//www.youtube.com/embed/t0kyteLusw4?vq=hd720', frameborder='0', allowfullscreen)
+
+      .step(data-x='2500', data-y='0', data-z='0')
+        h1 Mitä kehitystyökaluja frontend-kehityksessä käytetään?
+
+      .step(data-x='3500', data-y='0', data-z='0')
+        h2 Pakettienhallinta, riippuvuuksien hallinta
+        table
+          thead
+            tr
+              th
+              th
+              th
+              th Asennus
+              th Riippuvuuksien hallinta
+          tbody
+            tr
+              td: img(src='https://www.npmjs.org/static/npm.png')
+              td NPM
+              td Pakettienhallinta Node.js moduuleille
+              td.
+                Tulee <a href="http://nodejs.org/">node.js</a> - paketin mukana.
+
+              td package.json - tiedosto
+            tr
+              td: img(src='http://bower.io/img/bower-logo.png')
+              td Bower
+              td Pakettienhallinta client-kirjastoille
+              td
+                pre
+                  code(data-language='shell').
+                    npm install -g bower
+              td bower.json - tiedosto
+
+        h3 Mitä hyötyjä pakettienhallinnalla saavutetaan?
+        ul
+          li
+            | Kolmannen osapuolen kirjastoja ei tarvitse säilyttää versionhallinnassa
+            ul
+              li Riippuvuudet ja versionumerot nätisti listattuna
+          li Kirjastoja on helppo asentaa ja pitää ajan tasalla
+
+
+      .step(data-x='4800', data-y='0', data-z='0')
+        h2 Task runnerit
+
+        table
+          thead
+            tr
+              th
+              th
+              th
+              th Asennus
+              th Plugineja
+              th Repo luotu GitHubiin
+          tbody
+            tr
+              td
+                a(href='http://gruntjs.com', target='_blank')
+                  img(src='http://gruntjs.com/img/grunt-logo.png')
+              td Grunt
+              td Pakettienhallinta Node.js moduuleille
+              td
+                pre
+                  code(data-language='shell').
+                    npm install -g grunt-cli
+              td 2,613
+              td Syyskuussa 2011
+            tr
+              td
+                a(href='http://gulpjs.com/', target='_blank')
+                  img(src='https://raw2.github.com/gulpjs/artwork/master/gulp-2x.png')
+              td gulp
+              td Pakettienhallinta client-kirjastoille
+              td
+                pre
+                  code(data-language='shell').
+                    npm install -g gulp
+              td 541
+              td Heinäkuussa 2013
+        p
+          | Myös todella paljon muita vaihtoehtoja kuten&nbsp;
+          a(href='https://github.com/joliss/broccoli', target='_blank') Broccoli
+          |,&nbsp;
+          a(href='https://github.com/leonidas/james.js', target='_blank') james.js
+          |  jne.
+        h3 Mitä hyötyjä task runnereilla saavutetaan?
+        ul
+          li Voidaan automatisoida koodin buildaus, testaus ja moni muu manuaalisti hoidettava tehtävä
+          ul
+            li Voidaan esimerkiksi kääntää HTML-tiedosto template-tiedoistoista aina kun joku tiedosto muuttuu.
+            li Voidaan notifioida selainta kun tiedostot muuttuu ja automatisoida refresh selaimessa (LiveReload)
+
+      .step(data-x='6000', data-y='0', data-z='0')
+        h1
+          |gulp
+          img(src='https://raw2.github.com/gulpjs/artwork/master/gulp-2x.png')
+        ul
+          li Erittäin nopea
+          ul
+            li.
+              Pääosin syystä, että <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md" target="_blank">API</a>
+              perustuu <a href="http://nodejs.org/api/stream.html" target="_blank">Noden streameihin</a>
+
+          li Yksinkertainen ja selkeä <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md" target="_blank">API</a>
+          ul
+            li
+              strong gulp.task
+              span  - Määritellään uusi ajettava taski tai yhdistetään monta olemassaolevaa taskia yhdeksi
+            li
+              strong gulp.watch
+              span  - Seurataan tiedoston/tiedostojen muutoksia ja ajetaan määritellyt taskit kun tiedosto muuttuu
+            li
+              strong gulp.src
+              span  - Luetaan tiedosto/tiedostot levyltä ja aloitetaan uusi stream pipeline
+            li
+              strong gulp.dest
+              span  - Yleensä pipelinen viimeinen osa. Kirjoittaa tiedostot levylle.
+
+          li Runsaasti plugineja (&gt;500)
+          ul
+            li Kannustaa kirjoittamaan yleishyödyllisiä plugineja, jotka eivät ole riippuvaisia gulpista.
+
+      .step.step-full(data-x='8000', data-y='0', data-z='0')
+        img(src='http://hipster-glasses.com/wp-content/uploads/2013/05/8.gif')
+        h1.plus + super hipster
+
+      .step.step-sidebar(data-x='10000', data-y='0', data-z='0')
+        img.sidebar(src='images/sidebar1.png')
+        h1
+          |gulp
+          img(src='https://raw2.github.com/gulpjs/artwork/master/gulp-2x.png')
+
+
+        h3 1. Asennus
+        pre
+          code(data-language='shell') npm install gulp --save-dev
+
+        h3 2. Konfiguraatio-tiedosto
+
+        ul
+          li gulpfile.js - niminen tiedosto
+          li Yleensä projektihakemiston juureen
+        |<script src="https://gist.github.com/rikukissa/8d10244dab9a0a95835d/f24215c7035c614b191fe72e7d15bf4ef519da8a.js"></script>
+
+      .step.step-sidebar(data-x='12000', data-y='0', data-z='0')
+        img.sidebar(src='images/sidebar2.png')
+        h1
+          |gulp
+          img(src='https://raw2.github.com/gulpjs/artwork/master/gulp-2x.png')
+        p JS - tiedostojen minifioiminen + uglifoiminen
+        h3 3. Asennetaan tarvittava gulp-plugin
+        pre
+          code(data-language='shell').
+            npm install gulp-uglify --save-dev
+        h3 4. Lisätään uusi task gulpfile.js tiedostoon
+        |<script src="https://gist.github.com/rikukissa/8d10244dab9a0a95835d/20c9fd738ab3cf58999d4300c8c37f0c72ebc0a3.js"></script>
+
+      .step.step-sidebar(data-x='14000', data-y='0', data-z='0')
+        img.sidebar(src='images/sidebar3.png')
+        h1
+          |gulp
+          img(src='https://raw2.github.com/gulpjs/artwork/master/gulp-2x.png')
+        h3 5. Ajetaan "gulp" - komento terminaalissa
+        img.terminal(src='images/terminal1.png')
+        strong src/main.js (111b)
+        |<script src="https://gist.github.com/rikukissa/3c096dfb205d0d38cdc8.js"></script>
+        strong dist/main.js (86b)
+        |<script src="https://gist.github.com/rikukissa/6627e3fcdc9e0892cfdf.js"></script>
+
+      .step.step-sidebar(data-x='16000', data-y='0', data-z='0')
+        img.sidebar(src='images/sidebar3.png')
+        h1
+          |gulp
+          img(src='https://raw2.github.com/gulpjs/artwork/master/gulp-2x.png')
+        h3 6. Automatisoidaan taski suoritettavaksi aina kun src/main.js tiedosto muuttuu
+        |<script src="https://gist.github.com/rikukissa/8d10244dab9a0a95835d/c160bb04a014af04b9cba33b8443a30da416e134.js"></script>
+        p.
+          Luotiin uusi "watch" - niminen taski, joka kutsuu <strong>gulp.watch</strong> - metodia tiedostoihin ja taskiin liittyvillä parametreillä.
+        p.
+          Nyt kun "gulp" - komento ajetaan ilman parametrejä jää "watch" - taskissa määritellyt watcherit kuuntelemaan tiedostoissa tapahtuvia muutoksia ja
+          "min-js" taskiä kutsutaan aina kun jotain muuttuu.
+
+      .step.step-sidebar(data-x='18000', data-y='0', data-z='0')
+        img.sidebar(src='images/sidebar4.png')
+        pre
+          code(data-language='shell') npm install gulp-minify-css gulp-minify-html --save-dev
+        |<script src="https://gist.github.com/rikukissa/8d10244dab9a0a95835d/2b611843297e016774b1085f150855ce5904c584.js"></script>
+
+      .step(data-x='20000', data-y='0', data-z='0')
+        h1 Lisää hyödyllisiä työkaluja ja niiden integraatio gulp taskiksi
+
+      .step(data-x='20000', data-y='2000', data-z='0')
+        h1 jade
+          a(href='http://jade-lang.com/', target='blank')
+            img(src='http://i1-scripts.softpedia-static.com/thumbnails/Jade-Template-Engine-thumb.png')
+        h3.subtitle Template engine
+        .compile
+          .language
+            pre
+              code(data-language='html').
+                tbody
+                  tr
+                    td: img(src='https://www.npmjs.org/static/npm.png')
+                    td NPM
+                    td Pakettienhallinta Node.js moduuleille
+                    td.
+                      Tulee <a href="http://nodejs.org/">node.js</a> - paketin mukana.
+
+          span HTML
+          .language
+            pre
+              code(data-language='html').
+                &lt;tbody&gt;
+                  &lt;tr&gt;
+                    &lt;td&gt;&lt;img src="https://www.npmjs.org/static/npm.png"&gt;&lt;/td&gt;
+                    &lt;td&gt;NPM&lt;/td&gt;
+                    &lt;td&gt;Pakettienhallinta Node.js moduuleille&lt;/td&gt;
+                    &lt;td&gt;
+                      Tulee &lt;a href="http://nodejs.org/"&gt;node.js&lt;/a&gt; - paketin mukana.
+                    &lt;/td&gt;
+                  &lt;/tr&gt;
+                &lt;/tbody&gt;
+        .row
+          .column.column1-2
+            ul
+              li Nopeuttaa HTML:n kirjoittamista
+              li Vähentää turhan markupin toistoa mixineillä
+          .column.column1-2
+            ul
+              li Tekee koodista helpommin muokattavaa kun ei tarvi metsästää elementtien lopputageja.
+        p.
+          Muita vastaavia muun muassa
+          <a href="http://haml.info/" target="_blank">Haml</a>,
+          <a href="http://mustache.github.io/" target="_blank">mustache</a> ja
+          <a href="http://handlebarsjs.com/" target="_blank">Handlebars.js</a>
+
+      .step(data-x='24000', data-y='2000', data-z='0')
+        h1
+          | gulp-jade esimerkki
+          a(href='http://jade-lang.com/', target='blank')
+            img(src='http://i1-scripts.softpedia-static.com/thumbnails/Jade-Template-Engine-thumb.png')
+
+        pre
+          code(data-language='shell') npm install gulp-jade --save-dev
+
+        |<script src="https://gist.github.com/rikukissa/7a807f6852fbdb35b8eb.js"></script>
+
+      .step(data-x='26000', data-y='2000', data-z='0')
+        h1 LiveReload
+        ul
+          li Reloadaa selaimen / päivittää tyylitiedostot joku tiedostoista muuttuu.
+          li.
+            Vaatii <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en" target="_blank">Chrome lisäosan</a>
+          li Nopeuttaa työskentelyä huomattavasti kun ei tarvi pomppia tekstieditorin ja selaimen välillä
+
+
+        iframe(width='960', height='510', src='//www.youtube.com/embed/t0kyteLusw4?vq=hd720', frameborder='0', allowfullscreen)
+
+      .step(data-x='28000', data-y='2000', data-z='0')
+        h1
+          | gulp-livereload esimerkki
+
+        pre
+          code(data-language='shell') npm tiny-lr gulp-livereload --save-dev
+
+        |<script src="https://gist.github.com/rikukissa/5783322d53a42f6c0ce5.js"></script>
+
+      .step(data-x='30000', data-y='2000', data-z='0')
+        h1 Browserify
+          a(href='http://browserify.org/', target='blank')
+            img(src='http://browserify.org/images/wizard_hat_blue.png')
+        ul
+          li Mahdollistaa node.js-maailmasta tutun <strong>require</strong> funktion käytön fronttikoodissa.
+          li Mahdollista käyttää suurta osaa backend-moduuleista frontissa.
+          li Ohjaa modulaariseen JavaScriptiin.
+          li Jokaista moduulia ei tarvitse kierrättää globaalin <strong>window</strong>-scopen kautta
+          ul
+            li Usean &lt;script /&gt; - tagin kanssa tätä ei voi välttää.
+
+          li JavaScript - tiedostojen järjestyksellä ei ole merkitystä
+
+      .step(data-x='32000', data-y='2000', data-z='0')
+        h1 Kiitos
+
+      //- .step(data-x='5000', data-y='1000', data-z='0')
+      //-   h2 1. CSS preprosessorit, HTML template-enginet, JavaScriptiksi kääntyvät kielet
+
+
+      //-   .compile
+      //-     .language
+      //-       .logo
+      //-         a(href='http://jade-lang.com/', target='blank')
+      //-           img(src='http://i1-scripts.softpedia-static.com/thumbnails/Jade-Template-Engine-thumb.png')
+      //-       pre
+      //-         code(data-language='html').
+      //-           tbody
+      //-             tr
+      //-               td: img(src='https://www.npmjs.org/static/npm.png')
+      //-               td NPM
+      //-               td Pakettienhallinta Node.js moduuleille
+      //-               td.
+      //-                 Tulee <a href="http://nodejs.org/">node.js</a> - paketin mukana.
+
+      //-     .language
+      //-       .logo.
+      //-         HTML
+      //-       pre
+      //-         code(data-language='html').
+      //-           &lt;tbody&gt;
+      //-             &lt;tr&gt;
+      //-               &lt;td&gt;&lt;img src="https://www.npmjs.org/static/npm.png"&gt;&lt;/td&gt;
+      //-               &lt;td&gt;NPM&lt;/td&gt;
+      //-               &lt;td&gt;Pakettienhallinta Node.js moduuleille&lt;/td&gt;
+      //-               &lt;td&gt;
+      //-                 Tulee &lt;a href="http://nodejs.org/"&gt;node.js&lt;/a&gt; - paketin mukana.
+      //-               &lt;/td&gt;
+      //-             &lt;/tr&gt;
+      //-           &lt;/tbody&gt;
+      //-   p.
+      //-     Muita vastaavia muun muassa
+      //-     <a href="http://haml.info/" target="_blank">Haml</a>,
+      //-     <a href="http://mustache.github.io/" target="_blank">mustache</a> ja
+      //-     <a href="http://handlebarsjs.com/" target="_blank">Handlebars.js</a>
+      //- .step(data-x='6500', data-y='1000', data-z='0')
+      //-   h2 2. CSS preprosessorit, HTML template-enginet, JavaScriptiksi kääntyvät kielet
+      //-   .compile
+      //-     .language
+      //-       .logo
+      //-         a(href='http://learnboost.github.io/stylus/', target='_blank')
+      //-           img(src='http://learnboost.github.io/stylus/docs/graphics/Logos/stylus.png')
+      //-       pre
+      //-         code(data-language='css').
+      //-           .author
+      //-             img
+      //-               float left
+      //-               margin-right 1em
+      //-             .row
+      //-               margin-top 0.5em
+
+      //-     .language
+      //-       .logo
+      //-         |CSS
+      //-       pre
+      //-         code(data-language='css').
+      //-           .author img {
+      //-             float: left;
+      //-             margin-right: 1em;
+      //-           }
+      //-           .author .row {
+      //-             margin-top: 0.5em;
+      //-           }
+
+      //-   p.
+      //-     Muita vastaavia muun muassa
+      //-     <a href="http://sass-lang.com/" target="_blank">Sass</a> ja
+      //-     <a href="http://lesscss.org/" target="_blank">Less</a>
+
+
+      //- .step(data-x='8000', data-y='1000', data-z='0')
+      //-   h2 3. CSS preprosessorit, HTML template-enginet, JavaScriptiksi kääntyvät kielet
+      //-   .compile
+      //-     .language
+      //-       .logo.logo-coffeescript
+      //-         a(href='http://coffeescript.org/', target='_blank')
+      //-           img(src='http://coffeescript.org/documentation/images/logo.png')
+      //-       pre
+      //-         code(data-language='coffeescript').
+      //-           hello = (name) -&gt;
+      //-            "Hello \#{name}"
+      //-     .language
+      //-       .logo JavaScript
+      //-       pre
+      //-         code(data-language='css').
+      //-           var hello;
+
+      //-           hello = function(name) {
+      //-             return "Hello " + name;
+      //-           };
+
+      //-   h3 Hyötyjä JavaScriptiksi kääntyvistä kielistä
+      //-   ul
+      //-     li Koodista saadaan luettavampaa
+      //-     ul
+      //-       li Voidaan jättää aaltosulkeita, sulkeita ja puolipisteitä pois ja korvata ne sisennyksillä
+      //-     li Saadaan käyttöon ominaisuuksia joita JavaScriptin syntaksi ei itsessään (ainakaan vielä) tue.
+      //-     ul
+      //-       li Stringien interpolaatio
+      //-       li Lyhyt lambda-syntaksi
+      //-     li Saadaan JavaScriptistä tyyppiturvallisempaa
+      //-       ul
+      //-         li Esimerkiksi&nbsp;
+      //-           a(href='http://www.typescriptlang.org/', target='_blank') TypeScript
+
+      //-   p
+      //-     a(href='https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS').
+      //-       https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS
+
+      //- .step(data-x='7500', data-y='2000', data-z='0')
+      //-   h2 Task runnerit
+
+      //-   table
+      //-     thead
+      //-       tr
+      //-         th
+      //-         th
+      //-         th
+      //-         th Asennus
+      //-         th Plugineja
+      //-         th Repo luotu GitHubiin
+      //-     tbody
+      //-       tr
+      //-         td
+      //-           a(href='http://gruntjs.com', target='_blank')
+      //-             img(src='http://gruntjs.com/img/grunt-logo.png')
+      //-         td Grunt
+      //-         td Pakettienhallinta Node.js moduuleille
+      //-         td
+      //-           pre
+      //-             code(data-language='shell').
+      //-               npm install -g grunt-cli
+      //-         td 2,613
+      //-         td Syyskuussa 2011
+      //-       tr
+      //-         td
+      //-           a(href='http://gulpjs.com/', target='_blank')
+      //-             img(src='https://raw2.github.com/gulpjs/artwork/master/gulp-2x.png')
+      //-         td gulp
+      //-         td Pakettienhallinta client-kirjastoille
+      //-         td
+      //-           pre
+      //-             code(data-language='shell').
+      //-               npm install -g gulp
+      //-         td 541
+      //-         td Heinäkuussa 2013
+
+      //-   p
+      //-     | Myös todella paljon muita vaihtoehtoja kuten&nbsp;
+      //-     a(href='https://github.com/joliss/broccoli', target='_blank') Broccoli
+      //-     |,&nbsp;
+      //-     a(href='https://github.com/leonidas/james.js', target='_blank') james.js
+      //-     |  jne.
+
+      //- .step(data-x='6500', data-y='0', data-z='0')
+      //-   h1 Miten task runnereita voidaan hyödyntää kehitettäessä?
+
+      //- .step(data-x='8000', data-y='0', data-z='0')
+      //-   h3 Voidaan kääntää
+
+
+    script(src='js/bundle.js')
