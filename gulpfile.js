@@ -21,7 +21,7 @@ var production = process.env.NODE_ENV === 'production';
 
 gulp.task('coffee', function() {
   var bundle;
-  console.log(production);
+
   if(production) {
     bundle = browserify('./src/coffee/main.coffee');
   } else {
