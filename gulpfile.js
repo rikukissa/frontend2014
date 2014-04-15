@@ -10,7 +10,7 @@ var path = require('path'),
     streamify = require('gulp-streamify'),
     rename = require('gulp-rename'),
     uglify = require('gulp-uglify'),
-    prefix = require('gulp-autoprefixer')
+    prefix = require('gulp-autoprefixer'),
     nodeStatic = require('node-static'),
     lr = require('tiny-lr'),
     livereload = require('gulp-livereload');
@@ -34,7 +34,7 @@ gulp.task('coffee', function() {
     })
     .pipe(source('bundle.js'))
     .pipe(livereload(reloadServer))
-    .pipe(gulp.dest('./public/js/'))
+    .pipe(gulp.dest('./public/js/'));
   };
 
   if (!production) {
